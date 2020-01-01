@@ -1,2 +1,2 @@
-##Exercism Rust exercises solutions
+## Exercism Rust exercises solutions
 
