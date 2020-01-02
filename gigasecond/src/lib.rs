@@ -1,6 +1,9 @@
 use chrono::{DateTime, Utc};
-
+use chrono::Duration;
 // Returns a Utc DateTime one billion seconds after start.
 pub fn after(start: DateTime<Utc>) -> DateTime<Utc> {
-    unimplemented!("What time is a gigasecond later than {}", start);
+    let gigasecond = Duration::seconds(1000000000);
+    let end: DateTime<Utc> = start.checked_add_signed(gigasecond).unwrap();
+    return end;
 }
+
