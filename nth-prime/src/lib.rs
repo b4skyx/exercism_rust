@@ -24,3 +24,8 @@ pub fn nth(n: u32) -> u32 {
         }
     }
 }
+fn is_prime (k: u32) -> u32 {
+    if k <= 2 {
+        false
+    }
+    for r in 2..(std::num::sqrt(k)
