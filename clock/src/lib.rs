@@ -33,7 +33,9 @@ impl Clock {
 }
 impl fmt::Debug for Clock {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{{{}:{}}}", self.hours, self.minutes)
+        let hr = if self.hours < 10 {format!("0{}",self.hours.to_string())} else { format!("{}",self.hours.to_string()) };
+        let mn = if self.minutes < 10 {format!("0{}",self.minutes.to_string())} else { format!("{}",self.minutes.to_string()) };
+        write!(f, "{{{}:{}}}", hr, mn)
     }
 }
 impl PartialEq for Clock{
