@@ -6,26 +6,22 @@ pub fn nth(n: u32) -> u32 {
         return 3;
     }
     let mut count: u32 = 1;
-    let mut current: u32 = 3;
-    loop {
-        current = current + 1;
-        let mut prime: bool = true;
-        for r in 2..(current / 2) {
-            if current % r == 0 {
-                prime = false;
-                break;
-            }
-        }
-        if prime == true {
-            if count == n {
-                return current;
-            }
+    for r in 4..(u32::max_value()) {
+        if is_prime(r) {
             count = count + 1;
         }
+        if count == n {
+            return r;
+        }
     }
+    return n;
 }
-fn is_prime (k: u32) -> u32 {
-    if k <= 2 {
-        false
+
+pub fn is_prime(k: u32) -> bool {
+    for r in 2..((k as f64).sqrt() as u32 + 1) {
+        if k % r == 0 {
+            return false;
+        }
     }
-    for r in 2..(std::num::sqrt(k)
+    return true;
+}
